@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="io.github.wongxd.simplebuse.AtyMainActivity">
+
+    <TextView
+        android:id="@+id/tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:text="Hello World!" />
+
+
+    <Button
+        android:id="@+id/btn_nomal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="普通方式" />
+
+    <Button
+        android:id="@+id/btn_remove_nomal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="移除普通方式" />
+
+    <Button
+        android:id="@+id/btn_send_aty"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="发ATY消息" />
+
+
+    <Button
+        android:id="@+id/btn_cancle_aty"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="发消息取消aty总线" />
+
+    <Button
+        android:id="@+id/btn_send"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="发服务消息" />
+
+
+    <Button
+        android:id="@+id/btn_start"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="启动服务" />
+
+
+    <Button
+        android:id="@+id/btn_kill"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="杀死服务" />
+
+
+    <Button
+        android:id="@+id/btn_kill_bymsg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="通过发消息杀死服务" />
+
+
+    <Button
+        android:id="@+id/btn_cancle_bymsg"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="通过发消息取消服务总线" />
+
+</LinearLayout>
