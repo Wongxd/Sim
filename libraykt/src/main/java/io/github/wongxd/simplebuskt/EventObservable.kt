@@ -16,13 +16,13 @@ internal class EventObservable : IObservable {
 
 
     companion object {
-        data class ShouldRemovedListBean(val code: Int, val event: Class<*>, val observer: IObserver)
+        data class ShouldRemovedListBean(val code: Int, val event: Class<*>, val observer: IObserver<Any>)
     }
 
     /**
      * 特定 事件类型 对应 的订阅者
      */
-    private val type2Observer: MutableMap<Class<*>, Vector<IObserver>> = HashMap()
+    private val type2Observer: MutableMap<Class<*>, Vector<IObserver<Any>>> = HashMap()
 
     /**
      * 特定code 对应 的 事件类型
@@ -55,7 +55,7 @@ internal class EventObservable : IObservable {
      * 添加订阅者
      */
     @Synchronized
-    override fun addObserver(code: Int, event: Class<*>, observer: IObserver) {
+    override fun addObserver(code: Int, event: Class<*>, observer: IObserver<Any>) {
 
 //        Log.e("addObserver","$code   $event   $observer")
         if (code2EventType[code] == null) {
@@ -64,8 +64,8 @@ internal class EventObservable : IObservable {
             code2EventType.put(code, temp)
         }
 
-        val observers: Vector<IObserver> = if (type2Observer[event] == null) {
-            val temp: Vector<IObserver> = Vector()
+        val observers: Vector<IObserver<Any>> = if (type2Observer[event] == null) {
+            val temp: Vector<IObserver<Any>> = Vector()
             type2Observer[event] = temp
             temp
         } else {
@@ -84,7 +84,7 @@ internal class EventObservable : IObservable {
      * 移除订阅者
      */
     @Synchronized
-    override fun removeObserver(code: Int, event: Class<*>, observer: IObserver) {
+    override fun removeObserver(code: Int, event: Class<*>, observer: IObserver<Any>) {
 
 
         if (!isNotifyFinish) {
@@ -95,7 +95,7 @@ internal class EventObservable : IObservable {
 //        Log.e("removeObserver","$code   $event   $observer")
         if (code2EventType.get(code) == null) return
 
-        val observers: Vector<IObserver> = type2Observer[event] ?: return
+        val observers: Vector<IObserver<Any>> = type2Observer[event] ?: return
 
         observers.remove(observer)
     }

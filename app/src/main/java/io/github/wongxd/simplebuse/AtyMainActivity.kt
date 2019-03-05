@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import io.github.wongxd.simplebuse.event.ActivityEvent
 import io.github.wongxd.simplebuse.event.ServiceEvent
+import io.github.wongxd.simplebuskt.DefaultEvent
 import io.github.wongxd.simplebuskt.DefaultObserver
 import io.github.wongxd.simplebuskt.SimBusKt
 import io.github.wongxd.simplebuskt.annotation.SimEvent
@@ -23,7 +24,7 @@ class AtyMainActivity : AppCompatActivity() {
         setContentView(R.layout.aty_main)
 
 
-        val observer: IObserver = DefaultObserver { event, code -> Log.e(TAG, " DefaultEvent  onMessageReceived    $code") }
+        val observer: IObserver<DefaultEvent> = DefaultObserver { event, code -> Log.e(TAG, " DefaultEvent  onMessageReceived    $code") }
 
         SimBusKt.getInstance().register(EventCode.NORMAL_EVENT, observer = observer)
 

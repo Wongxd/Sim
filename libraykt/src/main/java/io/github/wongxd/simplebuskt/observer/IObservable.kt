@@ -10,13 +10,13 @@ interface IObservable {
     /**
      * 向事件订阅队列添加订阅者
      */
-    fun addObserver(code: Int, event: Class<*>, observer: IObserver)
+    fun addObserver(code: Int, event: Class<*>, observer: IObserver<Any>)
 
 
     /**
      * 删除指定订阅者
      */
-    fun removeObserver(code: Int, event: Class<*>, observer: IObserver)
+    fun removeObserver(code: Int, event: Class<*>, observer: IObserver<Any>)
 
     /**
      * 通知事件订阅队列里的每一个订阅者
